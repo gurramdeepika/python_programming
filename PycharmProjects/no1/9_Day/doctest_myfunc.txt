@@ -1,0 +1,9 @@
+::
+
+    >>> from doctest_simple import my_function
+    >>> my_function(2,3)
+    6
+
+::
+    >>> my_function(2.0,3)
+    6.0

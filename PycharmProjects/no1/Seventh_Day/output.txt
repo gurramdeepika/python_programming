@@ -1,0 +1,6 @@
+import sys
+import os
+divisor = int(input(" "))
+dividend = int(input(" "))
+if divisor == 0:
+    sys.stderr.write("can't divide by zero")

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie</title>
+</head>
+<body>
+    <form action="/setcolor/" method="get">{% csrf_token %}
+        Colour<input type="text" name="favcolor">
+        <input type="submit" value="Search">
+    </form>
+</body>
+</html>

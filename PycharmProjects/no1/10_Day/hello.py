@@ -1,0 +1,1 @@
+print("10th day of python session")
