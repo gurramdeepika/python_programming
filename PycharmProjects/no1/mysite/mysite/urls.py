@@ -35,5 +35,6 @@ urlpatterns = [
     path('logincookie/',login_set_cookie),
     path('showuser/',show_user),
     path('logout/',logout_user),
-    path('searchuser/',search_user)
+    path('searchuser/',search_user),
+    path('searchcookie/',search_cookie)
 ]

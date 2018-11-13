@@ -53,7 +53,7 @@ def search(request):
         name = request.POST['name']
         lis = Publisher.objects.filter (name = name)
 
-    return render_to_response('searched_values.html',{'values':lis})
+    return render_to_response('searched_values.html',{'values':lis}) #tuple
 
 from django.forms import ModelForm
 
@@ -116,7 +116,7 @@ def login_set_cookie(request):
             for rvalue in ruser:
                 values = rvalue.strip().split(':')
                 if user == values[0] and password == values[1]:
-                    response=HttpResponse ( "Successfully Logged In ")
+                    response=HttpResponse (render_to_response('Searchlogin.html',{'user':user}))
                     response.set_cookie ( 'username' , request.GET[ "user" ] )
                     response.set_cookie ( 'password' , request.GET[ "pass" ] )
                     count =+1
@@ -144,5 +144,12 @@ def logout_user(request):
 
 def search_user(request):
     if 'username' in request.COOKIES and 'password' in request.COOKIES:
-        return render(request,'Searchlogin.html')
+        return render(request,'search_cookie.html')
+    else:
+        return HttpResponse (render_to_response('login.html') )
 
+def search_cookie(request):
+    if request.GET[ "user" ] == request.COOKIES['username']:
+        user = request.COOKIES['username']
+        password = request.COOKIES['password']
+        return HttpResponse(render_to_response ( 'display.html',{'user':user,'pass':password} ))
